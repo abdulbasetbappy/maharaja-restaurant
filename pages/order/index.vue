@@ -338,10 +338,7 @@
           :disabled="
             cart?.cart?.length == 0 || cart.subtotal < settings.getCartMinimum
           "
-          @click="
-            close();
-            $router.push('/checkout');
-          "
+          @click="$router.push('/checkout')"
           v-if="auth.isAuthenticated"
         >
           {{ $t("Checkout") }}
@@ -372,7 +369,7 @@ export default defineNuxtComponent({
   name: "MenusView",
   head() {
     return {
-      title: "Menu - Le Palais de Raja Maharaja",
+      title: "Menu - Le Maharaja",
     };
   },
   data() {

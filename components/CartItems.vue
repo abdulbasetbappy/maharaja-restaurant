@@ -302,7 +302,7 @@ export default defineNuxtComponent({
   name: "Menus",
   head() {
     return {
-      title: "Menu - Five Chicken",
+      title: "Menu - Le Maharaja",
       htmlAttrs: {
         lang: "en",
       },
@@ -311,7 +311,7 @@ export default defineNuxtComponent({
         {
           name: "description",
           content:
-            "Five Chicken: Le meilleur restaurant de la ville pour une cuisine délicieuse.",
+            "Le Maharaja: Le meilleur restaurant de la ville pour une cuisine délicieuse.",
         },
       ],
     };

@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  apiRoot: "https://raja.opu.rocks:8000",
+  apiRoot: "https://api.lemaharajaparis14.fr",
   mobileVersion: "https://m.example.com",
   currency: "EUR",
   currencySymbol: "€",

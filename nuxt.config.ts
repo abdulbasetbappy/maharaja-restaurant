@@ -1,11 +1,11 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  name: "Le Palais de Raja Maharaja",
+  name: "Le Maharaja",
   ssr: false,
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
-      title: "Le Palais de Raja Maharaja",
+      title: "Le Maharaja",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
           hid: "description",
           name: "description",
           content:
-            "Le Palais de Raja Maharaja is a restaurant that offers a wide range of pasta dishes, from the most traditional to the most innovative.",
+            "Le Maharaja is a restaurant that offers a wide range of pasta dishes, from the most traditional to the most innovative.",
         },
       ],
       link: [

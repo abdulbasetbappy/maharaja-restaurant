@@ -1,8 +1,8 @@
 <template>
   <div class="i-checkout">
     <div class="container">
-      <div class="row">
-        <div class="col-8">
+      <div class="row c-row">
+        <div class="col-12 col-md-12 col-lg-8">
           <h1 class="mt-5 mb-4">{{ $t("Checkout") }}</h1>
 
           <Form
@@ -463,7 +463,7 @@
           </button>
           <!-- End: confirm button -->
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-12 col-lg-4">
           <CartPanel class="i-cart-panel" />
         </div>
       </div>
@@ -729,7 +729,7 @@ export default defineNuxtComponent({
           discount: parseFloat(this.cart.discount.toString()),
           subtotal: parseFloat(this.cart.subtotal.toString()),
           total: parseFloat(this.cart.total.toString()),
-          transaction_id: this.token.setupIntent,
+          transaction_id: this.token?.setupIntent,
           status: "pending",
         };
 
@@ -945,5 +945,11 @@ export default defineNuxtComponent({
 :disabled {
   cursor: not-allowed;
   opacity: 0.8;
+}
+
+.i-checkout .c-row {
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 }
 </style>

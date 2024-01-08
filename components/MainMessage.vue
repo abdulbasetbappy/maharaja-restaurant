@@ -8,7 +8,7 @@
         </h4>
 
         <p class="i-message-text">
-          Five Chicken est une pizzeria installée depuis 2017 au 34 Av. du
+          Le Maharaja est une pizzeria installée depuis 2017 au 34 Av. du
           Général de Gaulle, 94500 Champigny-sur-Marne. La pizzeria The Pasta
           Way vous proposes 34 recettes de pizzas cuisinées avec des produits
           frais et dans le respect des traditions italienne.

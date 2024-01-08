@@ -72,8 +72,13 @@
       {{ $t("Copyright") }} © {{ new Date().getFullYear() }} Le Maharaja.{{
         $t("All rights reserved")
       }}
-      | {{ $t("Developed with ❤️ by ") }} 
-      <NuxtLink style="margin-left: 5px; " target="_blank" to="https://www.wetechpro.com">WeTechPro</NuxtLink>
+      | {{ $t("Developed with ❤️ by ") }}
+      <NuxtLink
+        style="margin-left: 5px"
+        target="_blank"
+        to="https://www.wetechpro.com"
+        >WeTechPro</NuxtLink
+      >
     </div>
   </section>
 </template>
@@ -96,6 +101,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     padding-top: 2.5rem;
+    max-width: 100vw;
   }
 
   &__left {
@@ -199,7 +205,7 @@ export default {
       gap: 24px;
 
       p {
-        width: 100% !important;
+        width: 92vw;
       }
 
       &__img {

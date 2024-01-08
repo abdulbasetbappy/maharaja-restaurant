@@ -1,13 +1,13 @@
 // Custom.scss
 
 // Option B: Include parts of Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/bootstrap";
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
-$primary: #ed2024;
-$blue: #ed2024;
+$primary: #f7ae44;
+$blue: #f7ae44;
 $black: #091023;
 
 :root {
@@ -15,13 +15,16 @@ $black: #091023;
   --primary-light: #e9ded0;
 
   --white-color: #fff;
-  --bg-light: #F2F2F2;
+  --bg-light: #f2f2f2;
   --bg-gray: #282727;
 
   --text-black: #000;
   --text-gray: #262626;
   --text-light: #cdba9e;
 }
+
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
 
 // 5. Include remainder of required parts
 @import "../../node_modules/bootstrap/scss/maps";

@@ -1,10 +1,13 @@
 <template>
   <header
     class="home-header"
-    :class="{ 'sticky-top': $route.path.match(/\/order/) }"
+    :class="{
+      'sticky-top': $route.path.match(/\/order/),
+      transparent: $route.path == '/',
+    }"
   >
     <div class="home-header__content">
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="home-header__logo">
         <img src="/images/le_maharaja.png" alt="" />
       </NuxtLink>
       <div class="home-header__navigation">
@@ -37,7 +40,10 @@
           {{ $t("Profile") }}
         </button>
         <div @click="show = !show" class="home-header__login__cart">
-          <font-awesome-icon class="cart-icon" icon="fa-solid fa-cart-shopping" />
+          <font-awesome-icon
+            class="cart-icon"
+            icon="fa-solid fa-cart-shopping"
+          />
           <span>{{ cart.cart.length }}</span>
         </div>
         <div @click="openNav">
@@ -142,15 +148,6 @@ const showProfile = ref(false);
 </script>
 
 <style lang="scss">
-.sticky-top {
-  position: sticky;
-  top: 0;
-  right: 0;
-  box-shadow: -2px 0 20px #0000001c;
-}
-.active {
-  color: var(--text-gray) !important;
-}
 .home-header {
   width: 100%;
   background: var(--primary-light);
@@ -305,10 +302,30 @@ const showProfile = ref(false);
 @media screen and (max-width: 768px) {
   .home-header {
     padding: 0 1rem;
+
+    &.transparent {
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+
+      .home-header__logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+          margin-left: 2rem;
+        }
+      }
+    }
+
     &__login {
       gap: 1.5rem;
       .phone-call {
-        display: block;
+        display: none;
       }
       .menu-icon {
         display: block;
@@ -436,5 +453,21 @@ const showProfile = ref(false);
   .home-footer__bottom__area {
     margin-bottom: 4rem !important;
   }
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0 20px #0000001c;
+
+  .home-header__content {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+.active {
+  color: var(--text-gray) !important;
 }
 </style>

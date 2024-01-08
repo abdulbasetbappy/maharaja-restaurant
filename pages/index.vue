@@ -24,7 +24,7 @@
               >
                 {{ $t("Delivery") }}
               </button>
-              <span>or</span>
+              <span>ou</span>
               <button
                 :class="{ active: cart.is_pickup }"
                 @click="cart._is_pickup = true"
@@ -268,7 +268,10 @@
             :key="location.id"
             class="home-delivery-area__bottom__card"
           >
-            <font-awesome-icon class="location-icon" icon="fa-solid fa-location-dot" />
+            <font-awesome-icon
+              class="location-icon"
+              icon="fa-solid fa-location-dot"
+            />
             <span>{{ location.city }} - {{ location.zip }}</span>
           </div>
         </div>
@@ -293,7 +296,7 @@ import { useMenuStore } from "~~/store/Menu";
 import { useSettingStore } from "~~/store/Settings";
 
 useHead({
-  title: "Home - Le Palais de Raja Maharaja",
+  title: "Home - Le Maharaja",
 });
 
 const menus = useMenuStore();
@@ -384,7 +387,7 @@ const popularProducts = computed(() => {
   &__content {
     max-width: 1200px;
     margin: 0 auto;
-    height: calc(100vh - 6.5rem);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -482,6 +485,10 @@ const popularProducts = computed(() => {
         border: 1px solid var(--primary-color);
         background: transparent;
         color: var(--primary-color);
+        @media screen and (max-width: 768px) {
+          border: 1px solid var(--white-color);
+          color: var(--white-color);
+        }
         text-transform: uppercase;
         font-size: 18px;
         font-weight: 500;
@@ -505,7 +512,7 @@ const popularProducts = computed(() => {
       span {
         margin: 0 1rem;
         font-size: 20px;
-        color: var(--text-black);
+        color: #fff;
         font-weight: 400;
         text-transform: capitalize;
       }
@@ -990,10 +997,10 @@ const popularProducts = computed(() => {
       padding: 0.875rem 1.875rem;
       background: var(--primary-light);
       cursor: pointer;
-     .location-icon {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-     }
+      .location-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+      }
     }
     span {
       font-size: 1rem;
@@ -1010,7 +1017,7 @@ const popularProducts = computed(() => {
   .home-hero {
     width: 100%;
     padding: 0 1rem;
-    background-color: rgb(249, 238, 238, 0.6);
+    background-color: rgb(0, 0, 0, 0.6);
     border-radius: inherit;
     video {
       display: block;
@@ -1022,7 +1029,10 @@ const popularProducts = computed(() => {
         font-size: 2.2rem;
         line-height: 140%;
         font-weight: 700;
-        color: var(--text-black);
+        color: #fff;
+
+        text-shadow: 5px 5px 10px #000;
+
         span {
           font-size: 2rem;
           line-height: 140%;
@@ -1039,7 +1049,7 @@ const popularProducts = computed(() => {
     }
 
     &__details {
-      width: 90%;
+      width: 100%;
       &__location {
         &__select {
           font-size: 1rem;
@@ -1138,7 +1148,6 @@ const popularProducts = computed(() => {
         letter-spacing: 1px;
       }
     }
-
   }
 
   .home-popular-food {

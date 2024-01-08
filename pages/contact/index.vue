@@ -113,7 +113,7 @@
         <div class="col">
           <h3 class="mb-3">{{ $t("Our Location") }}</h3>
           <p>
-            Le Palais de Raja Maharaja
+            Le Maharaja
             <br />
             21 Rue d'Ouessant
             <br />
@@ -121,7 +121,8 @@
           </p>
           <h3 class="mb-3">{{ $t("Contact Info") }}</h3>
           <p>
-            {{ $t("Phone") }}: <a href="tel:01 43 06 50 39">+33 01 43 06 50 39</a>
+            {{ $t("Phone") }}:
+            <a href="tel:01 43 06 50 39">+33 01 43 06 50 39</a>
             <br />
             {{ $t("Email") }}:
             <a href="mailto:info@big-time.fr">
@@ -145,7 +146,7 @@
 
 <script lang="ts">
 useHead({
-  title: "Contact - Le Palais de Raja Maharaja",
+  title: "Contact - Le Maharaja",
 });
 export default defineNuxtComponent({
   data() {
