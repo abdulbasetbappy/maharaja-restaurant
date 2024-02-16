@@ -1,86 +1,55 @@
 <template>
-  <section class="home-footer">
-    <div class="home-footer__content">
-      <div class="home-footer__left">
-        <img
-          class="home-footer__left__img"
-          src="/images/le_maharaja.png"
-          alt=""
-        />
-        <p>
-          {{
-            $t(
-              "At Le Maharaja, we invite you on a culinary expedition where every dish narrates a tale of tradition and innovation. Our dedication to authenticity and excellence transpires in each bite, transporting you to the vibrant streets and kitchens of India. With a curated menu boasting a myriad of flavors, from the fragrant spices of tandoori entrees to the succulent seafood delights, immerse yourself in the rich tapestry of Indian cuisine."
-            )
-          }}
-        </p>
-        <div class="home-footer__left__social__icons" v-if="false">
-          <img src="/images/facebook.png" alt="" />
-          <img src="/images/twitter.png" alt="" />
-          <img src="/images/linkedin.png" alt="" />
-          <img src="/images/instagram.png" alt="" />
-        </div>
+  <!---------- Footer Section ----------->
+  <div class="footer_section">
+    <div class="footer_section1">
+      <div class="logo">
+        <img src="../public/images/le_maharaja.png" alt="Logo" />
       </div>
-      <div class="home-footer__right">
-        <div class="home-footer__right__content">
-          <div class="home-footer__right__info">
-            <h5>{{ $t("Quick Links") }}</h5>
-            <ul>
-              <li>
-                <NuxtLink to="/" active-class="active" exact>{{
-                  $t("Home")
-                }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/order" active-class="active">{{
-                  $t("Menu")
-                }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/contact" active-class="active">{{
-                  $t("Contact")
-                }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/privacy-policy" active-class="active">{{
-                  $t("Privacy Policy")
-                }}</NuxtLink>
-              </li>
-            </ul>
-          </div>
-          <div class="home-footer__right__info">
-            <h5>{{ $t("Hours") }}</h5>
-            <ul>
-              <li>Lundi au Dimanche 11:00-23:00</li>
-            </ul>
-          </div>
-          <div class="home-footer__right__info">
-            <h5>{{ $t("Address") }}</h5>
-            <ul>
-              <li>
-                27 Avenue Reille, <br />
-                75014 Paris
-              </li>
-              <li><a href="tel:09 50 93 81 48"> +33 09 50 93 81 48 </a></li>
-            </ul>
-          </div>
-        </div>
+      <p>
+        Là où la tradition rencontre l'innovation. Découvrez la fusion des
+        saveurs authentiques et de l'élégance moderne dans la cuisine indienne
+        au Palais de Raja Maharaja
+      </p>
+      <div class="icon_div">
+        <font-awesome-icon
+          class="s_icons"
+          icon="fa-brands fa-facebook"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          class="s_icons"
+          icon="fa-brands fa-linkedin-in"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          class="s_icons"
+          icon="fa-brands fa-instagram"
+        ></font-awesome-icon>
       </div>
     </div>
-
-    <div class="home-footer__bottom__area">
-      {{ $t("Copyright") }} © {{ new Date().getFullYear() }} Le Maharaja.{{
-        $t("All rights reserved")
-      }}
-      | {{ $t("Developed with ❤️ by ") }}
-      <NuxtLink
-        style="margin-left: 5px"
-        target="_blank"
-        to="https://www.wetechpro.com"
-        >WeTechPro</NuxtLink
-      >
+    <div class="footer_section2">
+      <h3 class="Section2_title">Location</h3>
+      <p>Le Maharaja 21 Rue d'Ouessant 75015 Paris</p>
     </div>
-  </section>
+    <div class="footer_section3">
+      <h3 class="Section3_title">Subscribe</h3>
+      <input type="email" placeholder="Enter Your Email" />
+      <font-awesome-icon
+        class="icons"
+        icon="fa-solid fa-arrow-right"
+      ></font-awesome-icon>
+    </div>
+    <div class="footer_section4">
+      <h3 class="Section4_title">Application</h3>
+      <div class="app">
+        <img src="../assets/google.png" alt="Google-Playstore" />
+        <img src="../assets/apple.png" alt="Apple-Store" />
+      </div>
+    </div>
+  </div>
+  <!-- Credit -->
+  <hr />
+  <h1 class="credit">
+    Developed by <NuxtLink to="www.wetechpro.com">wetechpro</NuxtLink>
+  </h1>
 </template>
 
 <script lang="ts">
@@ -90,172 +59,291 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-footer {
-  width: 100%;
-  background: var(--primary-light);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/*--------Footer Section-----------*/
+.footer_section {
+  margin: auto;
+  height: 300px;
+  max-width: 1320px;
+  background-color: #eef2f6;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 30px 20px 15px 20px;
 
-  &__content {
-    width: 1200px;
-    margin: 0 auto;
-    height: 500px;
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 2.5rem;
-    max-width: 100vw;
+  .footer_section1 {
+    width: 40%;
+    margin: 0px 50px;
+    .logo {
+      img {
+        height: 60px;
+        display: block;
+      }
+    }
+    p{
+      font-size: 16px;
+      width: 110%;
+      line-height: 1.4;
+    }
+    .icon_div {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .s_icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 20px;
+        width: 15px;
+        height: 15px;
+        color: #fdfdfd;
+        background-color: #ff8800;
+      }
+    }
   }
-
-  &__left {
-    width: 35%;
+  .footer_section2 {
+    width: 20%;
+    margin: 25px 20px;
+    .Section2_title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333333;
+    }
+    p{
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  }
+  .footer_section3 {
+    width: 20%;
+    margin: 25px 50px;
+    position: relative;
+    .Section3_title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333333;
+    }
+    input {
+      width: 100%;
+      margin-top: 10px;
+      padding: 15px 20px;
+      color: #333333;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      font-size: 12px; ;
+      font-weight: 500;
+      transition: all 0.3s ease-in-out;
+      &:focus {
+        border-color: darken(#ccc, 10%);
+      }
+    }
+    .icons {
+      color: #fff;
+      position: absolute;
+      right: -32px;
+      top: 43px;
+      padding: 17px;
+      background-color: #ffaa4d;
+      border-radius: 8px;
+      font-size: 24px;
+    }
+  }
+  .footer_section4 {
+    width: 20%;
+    margin: 25px 50px;
+    .Section4_title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+    .app {
+      margin-bottom: 20px;
+      img {
+        width: 80%;
+        display: block;
+        margin: 10px 0px;
+      }
+    }
+  }
+}
+.credit {
+  text-align: center;
+  padding: 8px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+//Responsive Breakpoint Mixins
+@mixin respond-to($min-width, $max-width: null) {
+  @if $max-width {
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+}
+//Responsive On Mobile
+@include respond-to(0px, 400px) {
+  /*--------Footer Section-----------*/
+  .footer_section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-
-    p {
-      width: 90%;
-      text-align: justify;
-    }
-
-    &__img {
-      width: 124px;
-      height: 126px;
-    }
-
-    &__social__icons {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      cursor: pointer;
-
-      img {
-        background: transparent;
-      }
-    }
-  }
-
-  &__right {
-    width: 65%;
-    &__content {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-top: 9.5rem;
-
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        gap: 2.5rem;
-        margin-top: 0;
-      }
-    }
-
-    &__info {
-      h5 {
-        font-size: 22px;
-        color: #000;
-        font-weight: 700;
-        line-height: 100%;
-        margin-bottom: 34px;
-        text-transform: capitalize;
-      }
-      ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-
-        li {
-          cursor: pointer;
-          a {
-            text-decoration: none;
-            cursor: pointer;
-            color: var(--primary-color);
-
-            &:hover {
-              color: var(--text-gray);
-            }
-          }
+    height: auto;
+    max-width: 400px;
+    justify-content: start;
+    padding: 30px 20px 15px 20px;
+    .footer_section1 {
+      width: 50%;
+      margin: 0px 0px;
+      .logo {
+        h1 {
+          font-size: 28px;
         }
       }
-    }
-  }
-
-  &__bottom__area {
-    height: 36px;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media all and (max-width: 768px) {
-  .home-footer {
-    &__content {
-      justify-content: flex-start;
-      padding: 4rem 1rem 1.5rem;
-      height: fit-content;
-      flex-direction: column;
-    }
-
-    &__left {
-      flex-direction: column;
-      gap: 24px;
-
       p {
-        width: 92vw;
+        font-size: 16px;
+        width: 180%;
       }
-
-      &__img {
-        width: 124px;
-        height: 126px;
-      }
-    }
-
-    &__right {
-      width: 100%;
-      margin-top: 2.5rem;
-      &__content {
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-
-      &__info {
-        h5 {
-          font-size: 1.25rem;
-          color: var(--text-black);
-          margin-bottom: 1rem;
-        }
-        ul {
-          gap: 0.4rem;
+      .icon_div {
+        margin-top: 8px;
+        margin-bottom: 20px;
+        i {
+          font-size: 16px;
+          padding: 6px;
         }
       }
     }
-
-    &__bottom__area {
-      padding: 1rem 1rem;
-      font-size: 0.6rem;
-      letter-spacing: 1px;
-      height: inherit;
+    .footer_section2 {
+      width: 50%;
+      margin: 0px;
+      .Section2_title {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+    }
+    .footer_section3 {
+      width: 50%;
+      margin: 0px;
+      margin-bottom: 20px;
+      .Section2_title {
+        font-size: 24px;
+      }
+      input {
+        width: 180px;
+      }
+      .icon {
+        left: 164px;
+        top: 45px;
+      }
+    }
+    .footer_section4 {
+      width: 50%;
+      margin: 0px;
+      .Section2_title {
+        font-size: 21px;
+      }
+      .app {
+        width: 60%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: start;
+        img {
+          width: 125px;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }
-
-@media screen and (min-width: 768.099px) and (max-width: 1200px) {
-  .home-footer {
-    &__content {
-      padding: 4rem 1rem 1rem;
-      flex-direction: column;
-      height: fit-content;
-      gap: 2.5rem;
+//Responsive On Mobile
+@include respond-to(400px, 768px) {
+  /*--------Footer Section-----------*/
+  .footer_section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-width: 768px;
+    justify-content: start;
+    padding: 30px 20px;
+    .footer_section1 {
+      width: 50%;
+      margin: 0px 0px;
+      .logo {
+        h1 {
+          font-size: 28px;
+        }
+      }
+      p {
+        font-size: 16px;
+        width: 180%;
+      }
+      .icon_div {
+        margin-top: 8px;
+        margin-bottom: 20px;
+        i {
+          font-size: 16px;
+          padding: 6px;
+        }
+      }
     }
-
-    &__left {
-      gap: 1.25rem;
-      &__img {
-        width: 120px;
+    .footer_section2 {
+      width: 50%;
+      margin: 0px;
+      .Section2_title {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+    }
+    .footer_section3 {
+      width: 50%;
+      margin: 0px;
+      margin-bottom: 20px;
+      .Section2_title {
+        font-size: 24px;
+      }
+      input {
+        width: 180px;
+      }
+      i {
+        left: 164px;
+        top: 42px;
+      }
+    }
+    .footer_section4 {
+      width: 50%;
+      margin: 0px;
+      .Section2_title {
+        font-size: 21px;
+      }
+      .app {
+        width: 60%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: start;
+        img {
+          width: 125px;
+          margin-right: 10px;
+        }
       }
     }
   }

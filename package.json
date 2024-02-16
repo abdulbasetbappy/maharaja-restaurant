@@ -10,7 +10,7 @@
   "devDependencies": {
     "@nuxtjs/i18n": "8.0.0-beta.10",
     "@types/bootstrap": "^5.2.6",
-    "nuxt": "3.3.1",
+    "nuxt": "^3.10.1",
     "sass": "^1.60.0"
   },
   "dependencies": {
@@ -34,5 +34,11 @@
     "vue-toastification": "2.0.0-rc.5",
     "vue3-carousel": "^0.2.14",
     "vue3-lottie": "^2.5.0"
-  }
+  },
+  "name": "maharaja-restaurant",
+  "description": "Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

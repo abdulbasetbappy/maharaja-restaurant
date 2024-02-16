@@ -22,6 +22,7 @@
           >{{ $t("Contact") }}</NuxtLink
         >
       </div>
+
       <div class="home-header__login">
         <a href="tel:06 66 26 83 41">
           <font-awesome-icon
@@ -50,6 +51,7 @@
           <font-awesome-icon class="menu-icon" icon="fa-solid fa-bars" />
         </div>
       </div>
+      
       <!-- mobile navigation -->
       <div :class="{ open: isOpen }" class="home-header__mobile-nav">
         <span @click.stop="closeNav" class="home-header__mobile-nav__close"
