@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!---------- Banner Section ----------->
+    <!----------Banner Section----------->
     <section class="banner_section">
       <div class="banner_content">
         <h1>
-          {{ $t("Meet, Eat & Enjoy The") }} <br />
+          {{ $t("Meet, Eat & Enjoy The") }}
           <span>{{ $t("True Taste") }}</span
           >.
         </h1>
@@ -48,9 +48,10 @@
                 {{ location.state }}
               </option>
             </select>
-            <div class="icon_arrow">
-              <font-awesome-icon class="arrow_icon" class="fa-solid fa-chevron-down"></font-awesome-icon>
-            </div>
+            <font-awesome-icon
+              class="arrow_icon"
+              :icon="['fas', 'angle-down']"
+            />
           </div>
 
           <div class="select" v-else>
@@ -72,6 +73,10 @@
                 {{ location.city }} - {{ location.zip }}, {{ location.state }}
               </option>
             </select>
+            <font-awesome-icon
+              class="arrow_icon"
+              :icon="['fas', 'angle-down']"
+            />
           </div>
         </div>
       </div>
@@ -80,26 +85,26 @@
       </div>
     </section>
 
-    <!---------- Feature Section ----------->
+    <!----------Feature Section----------->
     <section class="home-feature">
       <div class="home-feature__content">
-        <div class="home-feature__card">
+        <div class="home-feature__content__card1">
           <img src="/images/icon-supplier.png" alt="" />
-          <div class="home-feature__card__top">
+          <div class="home-feature__content__card1__top">
             <h3>{{ $t("ease of ordering") }}</h3>
             <p>{{ $t("Effortless meal selection and easy.") }}</p>
           </div>
         </div>
-        <div class="home-feature__card">
+        <div class="home-feature__content__card2">
           <img src="/images/icon-best-seller.png" alt="" />
-          <div class="home-feature__card__top">
+          <div class="home-feature__content__card2__top">
             <h3>{{ $t("best quality") }}</h3>
             <p>{{ $t("Finest ingredients, exceptional taste.") }}</p>
           </div>
         </div>
-        <div class="home-feature__card">
+        <div class="home-feature__content__card3">
           <img src="/images/icon-truck.png" alt="" />
-          <div class="home-feature__card__top">
+          <div class="home-feature__content__card3__top">
             <h3>{{ $t("quick delivery") }}</h3>
             <p>{{ $t("Speedy delivery for your cravings.") }}</p>
           </div>
@@ -107,7 +112,7 @@
       </div>
     </section>
 
-    <!----------About Section ----------->
+    <!----------About Section----------->
     <section class="about_section">
       <div class="about_content">
         <div class="about_firstimage">
@@ -128,7 +133,11 @@
             any participating restaurant within their operating radius.
           </p>
           <button>
-            {{$t("Contact")}} <i class="fa-solid fa-arrow-right"></i>
+            {{ $t("Contact") }}
+            <font-awesome-icon
+              class="icons"
+              icon="fa-solid fa-arrow-right"
+            ></font-awesome-icon>
           </button>
         </div>
         <div class="about_secondimage">
@@ -137,10 +146,10 @@
       </div>
     </section>
 
-    <!--Popular Section-->
+    <!---------Popular Section----------->
     <section class="home-popular-food">
       <div class="home-popular-food__content">
-        <div class="home-popular-food__top">
+        <div class="home-popular-food__content__top">
           <h2>
             <span>{{ $t("Crowd Favorites:") }}</span
             ><br />
@@ -150,7 +159,7 @@
             {{ $t("Indulge in the Most-Loved Creations Loved by Our Patrons") }}
           </p>
         </div>
-        <div class="home-popular-food__middle">
+        <div class="home-popular-food__content__middle">
           <div
             class="home-popular-food__middle__card"
             v-for="product in popularProducts"
@@ -172,16 +181,19 @@
             </div>
           </div>
         </div>
-        <div class="home-popular-food__bottom">
+        <div class="home-popular-food__content__bottom">
           <button>
             {{ $t("View All Item") }}
-            <img src="/images/right-arrow.png" alt="" />
+            <font-awesome-icon
+              class="icons"
+              icon="fa-solid fa-arrow-right"
+            ></font-awesome-icon>
           </button>
         </div>
       </div>
     </section>
 
-    <!----------Contact Section ----------->
+    <!----------Contact Section----------->
     <section class="Contact_container">
       <div class="contact_section">
         <div class="contact_title">
@@ -347,15 +359,6 @@ const popularCategories = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-// animation for forward spinning
-@keyframes spinForward {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /*--------Banner Section-----------*/
 .banner_section {
   max-width: 1200px;
@@ -411,14 +414,14 @@ const popularCategories = computed(() => {
           color: #333333;
         }
       }
-      .select {
+      .select{
         position: relative;
         width: 100%;
-        select{
+        select {
           border: none;
           outline: none;
           width: 100%;
-          padding: 15px 30px;
+          padding: 12px 20px;
           appearance: none;
           -webkit-appearance: none;
           -moz-appearance: none;
@@ -427,11 +430,15 @@ const popularCategories = computed(() => {
           margin-top: 15px;
           cursor: inherit;
           border-radius: 8px;
-          font-size: 18px;
+          font-size: 16px;
           color: #333333;
         }
+        .arrow_icon {
+          position: absolute;
+          top: 50%;
+          right: 12px;
+        }
       }
-
     }
   }
   .banner_image {
@@ -456,51 +463,50 @@ const popularCategories = computed(() => {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-  }
-
-  &__card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    height: fit-content;
-    background: var(--primary-light);
-    padding: 1rem;
-    border-radius: 0.75rem;
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s;
-    &:hover {
-      box-shadow: 0px 6px 16px 3px rgba(0, 0, 0, 0.1);
+    &__card1,
+    &__card2,
+    &__card3 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      height: fit-content;
+      background: var(--primary-light);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
       transition: all 0.4s;
-    }
-    img {
+      &:hover {
+        box-shadow: 0px 6px 16px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+      }
+      img {
         width: 70px;
         height: 70px;
         border-radius: 6px;
         padding: 5px;
         background-color: var(--primary-color);
       }
-    &__top {
-      display: flex;
-      align-items: start;
-      margin-bottom: 1rem;
-      flex-direction: column;
-      justify-content: flex-start;
-      margin-left:10px;
-      h3 {
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--text-black);
-        text-align: left;
+      &__top {
+        display: flex;
+        align-items: flex-start;
+        margin-left: 10px;
+        flex-direction: column;
+        justify-content: flex-start;
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--text-black);
+          text-align: left;
+        }
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 100%;
+          color: var(--text-gray);
+        }
       }
-      p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 100%;
-      color: var(--text-gray);
     }
-    }
-
   }
 }
 
@@ -561,14 +567,13 @@ const popularCategories = computed(() => {
       }
       button {
         padding: 15px 30px;
-          font-size: 20px;
-          border-radius: 8px;
-          border: none;
-          font-weight: bold;
-          width: auto;
-          position: relative;
-          back
-        i {
+        font-size: 20px;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        width: auto;
+        position: relative;
+        back i {
           width: fit-content;
           position: absolute;
           top: 0;
@@ -585,6 +590,7 @@ const popularCategories = computed(() => {
   }
 }
 
+/*--------Popular Section-----------*/
 .home-popular-food {
   width: 100%;
   background: var(--text-light);
@@ -786,13 +792,14 @@ const popularCategories = computed(() => {
       justify-content: center;
       align-items: center;
       flex-direction: row;
+      gap:15px;
       .contact_email {
-        margin: 0px 20px;
+        padding: 10px;
         border-radius: 18px;
         background-color: #bebebe;
-        padding: 25px 35px;
         display: flex;
-        justify-content: start;
+        max-width: 100%;
+        justify-content: flex-start;
         align-items: center;
         flex-direction: row;
         .logo {
@@ -802,7 +809,7 @@ const popularCategories = computed(() => {
           max-width: 60px;
         }
         .contact_email_details {
-          margin-left: 20px;
+          margin-left: 0px;
           h3 {
             font-size: 24px;
             font-weight: 600;
@@ -812,466 +819,702 @@ const popularCategories = computed(() => {
             font-size: 18px;
             font-weight: 500;
             color: #333333;
+            line-height: 20px;
           }
         }
       }
     }
   }
 }
-
-// mobile and tablet devices
-@media screen and (max-width: 768px) {
-  .home-hero {
-    width: 100%;
-    padding: 0 1rem;
-    background-color: rgb(0, 0, 0, 0.6);
-    border-radius: inherit;
-    video {
-      display: block;
-    }
-    &__left {
-      width: 100%;
-      gap: 1.7rem;
-      h1 {
-        font-size: 2.2rem;
-        line-height: 140%;
-        font-weight: 700;
-        color: #fff;
-
-        text-shadow: 5px 5px 10px #000;
-
-        span {
-          font-size: 2rem;
-          line-height: 140%;
-          color: var(--primary-color);
-        }
-      }
-      p {
-        font-size: 1rem;
-        display: none;
-      }
-    }
-    .background-clip {
-      display: block;
-    }
-
-    &__details {
-      width: 100%;
-      &__location {
-        &__select {
-          font-size: 1rem;
-          width: 100%;
-          option {
-            padding: 0.3rem;
-          }
-        }
-      }
-
-      &__delivery__type {
-        &__btn {
-          width: fit-content;
-          padding: 1rem;
-          font-size: 0.8rem;
-          letter-spacing: 0.5px;
-        }
-      }
-    }
-
-    &__right {
-      display: none;
-    }
-
-    .custom-shape-divider-bottom-1703021672 {
-      display: none;
-    }
+// animation for forward spinning
+@keyframes spinForward {
+  0% {
+    transform: rotate(0deg);
   }
-
-  .home-feature {
-    &__content {
-      flex-direction: column;
-      height: fit-content;
-      padding: 0 1rem;
-      margin: 4rem 0;
-    }
-
-    &__card {
-      width: 100%;
-    }
-  }
-
-  .home-discover {
-    padding: 12rem 0;
-    &__content {
-      flex-direction: column;
-      padding: 0 1rem;
-      gap: 2rem;
-    }
-    &__left {
-      width: 80%;
-      position: relative;
-      &__circle {
-        width: 18.75rem;
-        &__one {
-          height: 12.5rem;
-          width: 12.5rem;
-        }
-        &__two {
-          height: 18.75rem;
-          width: 18.75rem;
-        }
-      }
-      &__img2 {
-        display: none;
-      }
-      &__img3 {
-        display: none;
-      }
-      &__img4 {
-        display: none;
-      }
-      &__img5 {
-        display: none;
-      }
-    }
-    &__right {
-      width: 100%;
-
-      h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-      }
-      p {
-        width: 100%;
-        text-align: justify;
-        font-size: 1rem;
-        line-height: 140%;
-        margin-bottom: 2rem;
-      }
-
-      button {
-        width: fit-content;
-        padding: 1rem;
-        font-size: 1rem;
-        letter-spacing: 1px;
-      }
-    }
-  }
-
-  .home-popular-food {
-    padding: 5rem 1rem;
-    &__content {
-      gap: 3.5rem;
-    }
-    &__top {
-      h2 {
-        font-size: 1.8rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-    }
-
-    &__middle {
-      grid-template-columns: repeat(2, 1fr);
-      &__card {
-        &:hover {
-          transform: scale(1.04);
-        }
-        img {
-          height: 6.5rem;
-        }
-
-        &__info {
-          padding: 1rem;
-          h5 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-          }
-        }
-      }
-    }
-  }
-
-  .home-inspiration {
-    width: 100%;
-    padding: 12rem 1rem 4rem 1rem;
-    &__content {
-      flex-direction: column-reverse;
-    }
-
-    &__left {
-      h2 {
-        font-size: 1.8rem;
-      }
-      p {
-        width: 100%;
-        font-size: 1rem;
-      }
-
-      button {
-        width: fit-content;
-        padding: 1rem;
-        font-size: 1rem;
-        letter-spacing: 1px;
-      }
-    }
-
-    &__right {
-      width: 100%;
-      img {
-        width: 100%;
-        height: 18rem;
-      }
-    }
-
-    .inspiration-wave {
-      display: none;
-    }
-  }
-
-  .home-delivery-area {
-    display: none;
+  100% {
+    transform: rotate(360deg);
   }
 }
-
-// laptop devices
-@media (min-width: 768.099px) and (max-width: 1200px) {
-  .home-hero {
-    &__content {
-      padding: 0 1rem;
+//Responsive Breakpoint Mixins
+@mixin respond-to($min-width, $max-width: null) {
+  @if $max-width {
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
     }
-    &__left {
-      flex: 1;
-      gap: 1rem;
-      h1 {
-        font-size: 1.7rem;
-        line-height: 140%;
-        span {
-          line-height: 120%;
-          font-size: 2.5rem;
-        }
-      }
-
-      p {
-        font-size: 1rem;
-        line-height: 120%;
-      }
-    }
-
-    &__details {
-      width: 90%;
-      &__location {
-        &__select {
-          font-size: 1rem;
-          width: 100%;
-          option {
-            padding: 0.3rem;
-          }
-        }
-      }
-      &__delivery__type {
-        &__btn {
-          padding: 1rem;
-        }
-      }
-    }
-
-    &__right {
-      flex: 1;
-      margin-top: 6rem;
-      margin-left: 2rem;
-      &__circle {
-        width: 22rem;
-        &__one {
-          width: 22rem;
-        }
-        &__two {
-          width: 22rem;
-        }
-        &__three {
-          width: 22rem;
-        }
-      }
-
-      &__img1 {
-        width: 200px;
-        top: -80px;
-        left: 70px;
-      }
-      &__img2 {
-        width: 210px;
-        bottom: 60px;
-        left: -65px;
-      }
-      &__img3 {
-        width: 250px;
-        top: 120px;
-        left: 210px;
-      }
+  } @else {
+    @media screen and (min-width: $min-width) {
+      @content;
     }
   }
-
-  .home-feature {
-    &__content {
+}
+//Rest All Defaults in Browser
+@mixin browser-reset {
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+//Responsive On Mobile
+@include respond-to(0px, 768px) {
+  @include browser-reset;
+  div {
+    max-width: 100%;
+    margin: auto;
+    /*--------Banner Section-----------*/
+    .banner_section {
+      max-width: auto;
+      margin: auto;
       height: auto;
-      padding: 0 1rem;
-      margin: 4rem 0;
-    }
-
-    &__card {
-      flex: 1;
-    }
-  }
-
-  .home-discover {
-    padding: 0 1rem;
-    &__content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    &__left {
-      width: 50%;
-      &__circle {
-        width: 25rem;
-        &__one {
-          height: 13rem;
+      padding-bottom: 40px;
+      margin-top: 120px;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .banner_content {
+        width: 768px;
+        padding: 10px;
+        h1 {
+          font-size: 36px;
+          font-weight: 600;
+          padding: 0px 20px 0px 0px;
         }
-        &__two {
-          height: 20.75rem;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        p {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .banner_btn {
+          max-width: 100%;
+          margin-top: 20px;
+          .buttons {
+            button {
+              padding: 8px 12px;
+              font-size: 14px;
+            }
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+        .select {
+          select {
+            padding: 8px 12px;
+            font-size: 14px;
+            option {
+              font-size: 14px;
+            }
+          }
+          .icon_arrow {
+            font-size: 14px;
+          }
         }
       }
-      &__img2 {
+      .banner_image {
+        width: 95%;
+        margin: auto;
+        margin-bottom: 30px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    /*--------Feature Section-----------*/
+    .home-feature {
+      &__content {
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        &__card1 {
+          max-width: 80%;
+          opacity: 0.5;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        &__card2 {
+          max-width: 90%;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        &__card3 {
+          max-width: 80%;
+          opacity: 0.5;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    /*--------Popular Section-----------*/
+    .home-popular-food {
+      padding: 2.25rem 0;
+      &__content {
+        padding: 20px 10px;
+        &__top {
+          padding: 10px;
+          h2 {
+            font-size: 28px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+        &__middle {
+          &__card {
+            background-color: #333333;
+            max-width: 80%;
+            border: none;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 18px;
+            }
+            &__info {
+              color: #ffffff;
+              padding: 0.8em;
+              h5 {
+                color: #ffffff;
+                font-size: 18px;
+              }
+              p {
+                color: #ffffff;
+                font-size: 14px;
+                line-height: 15px;
+              }
+              span {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        &__bottom {
+          button {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 8px;
+            .icons {
+              position: absolute;
+              top: 0;
+              right: -30px;
+              color: #ffffff;
+              background-color: var(--primary-color);
+              padding: 17px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+    /*--------About Section-----------*/
+    .about_section {
+      max-width: 100%;
+      margin: auto;
+      height: auto;
+      padding: 50px 0px;
+      .about_firstimage {
         display: none;
       }
-      &__img3 {
-        right: 2.95rem;
-        bottom: 8.5rem;
-      }
-      &__img4 {
-        top: -0.5rem;
-      }
-      &__img5 {
-        height: 7.0625rem;
-        left: 2.4375rem;
-      }
-    }
-
-    &__right {
-      width: 50%;
-
-      h2 {
-        font-size: 2rem;
-      }
-      p {
+      .about_content {
         width: 100%;
-        font-size: 1rem;
-      }
-
-      button {
-        width: fit-content;
-        padding: 1rem;
-        font-size: 1rem;
-        letter-spacing: 1px;
-      }
-    }
-  }
-  .home-popular-food {
-    margin: 7.5rem 0;
-    padding: 0 1rem;
-    &__content {
-      gap: 3.5rem;
-    }
-    &__top {
-      h2 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-    }
-
-    &__middle {
-      &__card {
-        &:hover {
-          transform: scale(1.05);
+        padding: 20px;
+        .about_text {
+          max-width: 500px;
+          padding-left: 0px;
+          h2 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+          .p_subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0px 0px;
+          }
+          .p_paragraph {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0px;
+          }
+          button {
+            padding: 10px 20px;
+            font-size: 14px;
+            position: relative;
+            background-color: #fd9c35b4;
+            color: #333333;
+            .icons {
+              background-color: #fc9e3a;
+              position: absolute;
+              top: 0;
+              right: -35px;
+              padding: 17px;
+              border-radius: 8px;
+            }
+          }
         }
-        img {
-          height: 11.5rem;
+      }
+      .about_secondimage {
+        width: 60% !important;
+      }
+    }
+    /*--------Contact Section-----------*/
+    .Contact_container {
+      .contact_section {
+        padding: 50px 0px;
+        .contact_title {
+          h2 {
+            font-size: 30px;
+          }
+          p {
+            color: var(--primary-color);
+            font-size: 14px;
+          }
         }
-
-        &__info {
-          padding: 1rem;
-          h5 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        .contact_details {
+          flex-direction: column;
+          .contact_form {
+            width: 85%;
+            margin: auto;
+            margin-bottom: 50px;
+            input {
+              width: 90%;
+              padding: 10px;
+            }
+            textarea {
+              width: 90%;
+              padding: 10px;
+            }
+            button {
+              width: 90%;
+              padding: 10px 20px;
+              border-radius: 8px;
+              border: none;
+              background-color: var(--primary-color);
+              color: #fff;
+            }
+          }
+          .map {
+            width: 85%;
+            margin: auto;
+          }
+        }
+        .contact_text {
+          width: 100%;
+          margin: auto;
+          flex-direction: column;
+          .contact_email {
+            margin: 10px 0px;
+            width: 60%;
+            padding: 10px 10px;
+            .logo {
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+            .contact_email_details {
+              h3 {
+                font-size: 18px;
+                font-weight: 600;
+                padding: 0px;
+                margin: 0px;
+              }
+              p {
+                padding: 0px;
+                margin: 0px;
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
           }
         }
       }
     }
   }
-  .home-inspiration {
-    padding: 2rem 1rem 4rem;
-    &__content {
-      gap: 3rem;
+}
+
+//Responsive On Tablet
+@include respond-to(769px, 1024px) {
+  @include browser-reset;
+  div {
+    max-width: 100%;
+    margin: auto;
+    /*--------Banner Section-----------*/
+    .banner_section {
+      max-width: auto;
+      margin: auto;
+      height: auto;
+      padding-bottom: 40px;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .banner_content {
+        width: 1024px;
+        padding: 10px;
+        h1 {
+          font-size: 40px;
+          font-weight: 600;
+          padding: 0px auto 0px 0px;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 400;
+        }
+        .banner_btn {
+          margin-left: 0px;
+          max-width: 60%;
+          margin-top: 20px;
+          .buttons {
+            button {
+              padding: 10px 15px;
+              font-size: 16px;
+            }
+            span {
+              font-size: 16px;
+            }
+          }
+        }
+        .select {
+          select {
+            padding: 10px 15px;
+            font-size: 16px;
+            option {
+              font-size: 16px;
+            }
+          }
+          .icon_arrow {
+            font-size: 16px;
+          }
+        }
+      }
+      .banner_image {
+        width: 55%;
+        margin: auto;
+        margin-bottom: 30px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
-
-    &__left {
-      width: 60%;
-      h2 {
-        color: var(--text-black);
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 120%;
-        text-transform: capitalize;
-        margin-bottom: 1.5rem;
-      }
-      p {
-        width: 100%;
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      button {
-        width: fit-content;
-        padding: 1rem;
-        font-size: 1rem;
-        letter-spacing: 1px;
+    /*--------Feature Section-----------*/
+    .home-feature {
+      &__content {
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        &__card1 {
+          max-width: 80%;
+          opacity: 0.5;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        &__card2 {
+          max-width: 90%;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        &__card3 {
+          max-width: 80%;
+          opacity: 0.5;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          &__top {
+            margin-top: 0px;
+            h3 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
       }
     }
-
-    &__right {
-      img {
+    /*--------Popular Section-----------*/
+    .home-popular-food {
+      padding: 2.25rem 0;
+      &__content {
+        padding: 20px 10px;
+        &__top {
+          padding: 10px;
+          h2 {
+            font-size: 28px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+        &__middle {
+          &__card {
+            background-color: #333333;
+            max-width: 80%;
+            border: none;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 18px;
+            }
+            &__info {
+              color: #ffffff;
+              padding: 0.8em;
+              h5 {
+                color: #ffffff;
+                font-size: 18px;
+              }
+              p {
+                color: #ffffff;
+                font-size: 14px;
+                line-height: 15px;
+              }
+              span {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        &__bottom {
+          button {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 8px;
+            .icons {
+              position: absolute;
+              top: 0;
+              right: -30px;
+              color: #ffffff;
+              background-color: var(--primary-color);
+              padding: 17px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+    /*--------About Section-----------*/
+    .about_section {
+      max-width: 100%;
+      margin: auto;
+      height: auto;
+      padding: 50px 0px;
+      .about_firstimage {
+        display: none;
+      }
+      .about_content {
         width: 100%;
-        height: 19rem;
-        border-radius: 16px;
+        padding: 20px;
+        .about_text {
+          max-width: 500px;
+          padding-left: 0px;
+          h2 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+          .p_subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0px 0px;
+          }
+          .p_paragraph {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0px;
+          }
+          button {
+            padding: 10px 20px;
+            font-size: 14px;
+            position: relative;
+            background-color: #fd9c35b4;
+            color: #333333;
+            .icons {
+              background-color: #fc9e3a;
+              position: absolute;
+              top: 0;
+              right: -35px;
+              padding: 17px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+      .about_secondimage {
+        width: 60% ;
+      }
+    }
+    /*--------Contact Section-----------*/
+    .Contact_container {
+      .contact_section {
+        padding: 50px 0px;
+        .contact_title {
+          h2 {
+            font-size: 30px;
+          }
+          p {
+            color: var(--primary-color);
+            font-size: 14px;
+          }
+        }
+        .contact_details {
+          flex-direction: row;
+          .contact_form {
+            width: 45%;
+            margin: auto;
+            margin-bottom: 0px;
+            input {
+              width: 90%;
+              padding: 10px;
+            }
+            textarea {
+              width: 90%;
+              padding: 10px;
+            }
+            button {
+              width: 90%;
+              padding: 10px 20px;
+              border-radius: 8px;
+              border: none;
+              background-color: var(--primary-color);
+              color: #fff;
+            }
+          }
+          .map {
+            width: 45%;
+            margin: auto;
+          }
+        }
+        .contact_text {
+          width: 100%;
+          margin: auto;
+          flex-direction: row;
+          gap:10px;
+          .contact_email {
+            margin: 10px 0px;
+            width: 30%;
+            padding: 10px 10px;
+            .logo {
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+            .contact_email_details {
+              h3 {
+                font-size: 18px;
+                font-weight: 600;
+                padding: 0px;
+                margin: 0px;
+              }
+              p {
+                padding: 0px;
+                margin: 0px;
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
       }
     }
   }
-  .home-delivery-area {
-    padding: 5rem 1rem;
-    &__top {
-      h2 {
-        font-size: 2rem;
-      }
-    }
-    &__bottom {
-      &__card {
-        padding: 0.75rem;
-        span {
-          font-size: 0.875rem;
-          letter-spacing: 1px;
-        }
+}
 
+//Responsive On Desktop
+@include respond-to(1025px, 1440px) {
+  @include browser-reset;
+}
+
+//Responsive On Large Desktop
+@include respond-to(1441px) {
+  @include browser-reset;
+  /*--------About Section-----------*/
+  .about_section {
+    .about_content {
+      .about_firstimage {
         img {
-          filter: hue-rotate(265deg) contrast(2) saturate(4);
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .about_secondimage {
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
     }
